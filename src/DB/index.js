@@ -3,7 +3,7 @@ import { DB_NAME } from "../../constraints.js"
 
 const connectDB=async()=>{
     try{
-        const connectionInstance=await mongoose.connect(`mongodb+srv://Uttam:12345@cluster0.s0erxwb.mongodb.net/${DB_NAME}`);
+        const connectionInstance=await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`);
         console.log(`\n mongodb Connected host at ${connectionInstance.connection.host}`)
     }
     catch(error){
